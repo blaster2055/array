@@ -1,0 +1,51 @@
+
+<form [formGroup]="users" >
+    <div>
+<mat-form-field appearance="fill">
+    <mat-label>Name</mat-label>
+    <input matInput placeholder="Name" formControlName="name"  name="name" type="text">
+
+
+  </mat-form-field>
+</div>
+<div>
+  <mat-form-field appearance="fill">
+    <mat-label>Last Name</mat-label>
+    <input matInput placeholder="Last Name" formControlName="lastname"  name="lastname" type="text">
+
+
+  </mat-form-field>
+</div>
+  <div>
+  <mat-form-field appearance="fill">
+    <mat-label>Email</mat-label>
+    <input matInput placeholder="Email" formControlName="Email" name="Email" type="text">
+  </mat-form-field>
+</div>
+<button (click)="addSkill()">add skills</button>
+<ng-container formArrayName="skills">
+  <div *ngFor="let _ of skills.controls; index as i">
+    <input [formControlName]="i"  />
+  </div>
+</ng-container>
+<button (click)="addexperience()">add experience</button>
+<ng-container formArrayName="experience">
+  <div *ngFor="let _ of experience.controls; index as d">
+    <input [formControlName]="d" />
+
+  </div>
+</ng-container>
+<table>
+  <thead>
+    <th>skills</th>
+    <th>experience</th>
+  </thead>
+  <tbody>
+    <td>
+      <tr></tr>
+      <tr></tr>
+    </td>
+  </tbody>
+</table>
+
+</form>
